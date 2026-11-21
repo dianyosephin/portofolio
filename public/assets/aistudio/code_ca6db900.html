@@ -1,0 +1,844 @@
+<!DOCTYPE html><html lang="id" class="scroll-smooth"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dian Yosephin — Informatics &amp; Leadership Portfolio</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'paper': '#F5F2EC',
+        'surface': '#FFFFFF',
+        'surface-alt': '#EFEBE4',
+        'ink-primary': '#1A1817',
+        'ink-soft': '#635E59',
+        'accent-rust': '#C85A32',
+        'accent-rust-soft': '#FFEDE8',
+        'accent-border': '#D6CFCE',
+        'primary': '#A23E18',
+        'on-primary': '#FFFFFF',
+        'on-paper': '#1A1817',
+        'on-surface': '#1A1817',
+        'on-surface-alt': '#1A1817',
+        'outline': '#D6CFCE',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Syne"', 'sans-serif'],
+        'headline': ['"Syne"', 'sans-serif'],
+        'title': ['"Syne"', 'sans-serif'],
+        'hand': ['"Caveat"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['84px', { lineHeight: '88px', letterSpacing: '-2px', fontWeight: '800' }],
+        'display-xl-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'display-lg': ['56px', { lineHeight: '60px', letterSpacing: '-1.5px', fontWeight: '800' }],
+        'display-lg-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'headline-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'headline-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-md': ['18px', { lineHeight: '24px', letterSpacing: '-0.2px', fontWeight: '700' }],
+        'hand-lg': ['32px', { lineHeight: '38px', letterSpacing: '0px', fontWeight: '700' }],
+        'hand-md': ['24px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '700' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.75px', fontWeight: '700' }],
+      },
+      transitionDuration: {
+        'state-change': '180ms',
+        'card-lift': '240ms',
+        'marquee-scroll': '24000ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'card-lift': '0ms',
+        'marquee-scroll': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'card-lift': 'cubic-bezier(0.2, 0, 0, 1)',
+        'marquee-scroll': 'linear',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    @keyframes marqueeTrack {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeTrack 28s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+    }
+  </style>
+</head>
+<body class="bg-paper text-on-paper font-body antialiased selection:bg-accent-rust-soft selection:text-primary">
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="sticky top-0 z-40 bg-paper/90 backdrop-blur-md border-b border-accent-border">
+    <div class="max-w-6xl mx-auto px-gutter-lg py-gutter-md flex items-center justify-between gap-gutter-md">
+      <a href="#top" class="font-display text-headline-md uppercase tracking-tight text-ink-primary whitespace-nowrap">
+        DIAN YOSEPHIN
+      </a>
+
+      <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-gutter-lg">
+        <a href="#about" class="font-label text-label-sm uppercase text-ink-soft hover:text-primary transition-colors duration-state-change">ABOUT</a>
+        <a href="#qualifications" class="font-label text-label-sm uppercase text-ink-soft hover:text-primary transition-colors duration-state-change">QUALIFICATIONS</a>
+        <a href="#projects" class="font-label text-label-sm uppercase text-ink-soft hover:text-primary transition-colors duration-state-change">MY WORK</a>
+        <a href="#casestudy" class="font-label text-label-sm uppercase text-ink-soft hover:text-primary transition-colors duration-state-change">CASE STUDY</a>
+        <a href="#achievements" class="font-label text-label-sm uppercase text-ink-soft hover:text-primary transition-colors duration-state-change">ACHIEVEMENTS</a>
+        <a href="#contact" class="font-label text-label-sm uppercase text-primary hover:underline">CONTACT</a>
+      </nav>
+
+      <div class="flex items-center gap-gutter-sm">
+        <a href="https://www.linkedin.com/in/dianyosephin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Dian Yosephin" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-surface border border-accent-border text-ink-primary hover:border-accent-rust hover:text-primary transition-colors duration-state-change">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg>
+        </a>
+        <a href="https://github.com/dianyosephin" target="_blank" rel="noopener noreferrer" aria-label="GitHub Dian Yosephin" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-surface border border-accent-border text-ink-primary hover:border-accent-rust hover:text-primary transition-colors duration-state-change">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg>
+        </a>
+        <a href="mailto:dian.yosephin3@gmail.com" aria-label="Email Dian Yosephin" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-primary text-on-primary hover:opacity-90 transition-opacity duration-state-change">
+          <span class="material-symbols-outlined text-body-md">mail</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="min-h-[1024px]" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- 1. HERO SECTION (Editorial Magazine Cover) -->
+    <section class="max-w-6xl mx-auto px-gutter-lg pt-gutter-xl pb-section">
+      <div class="flex flex-col items-center text-center mb-gutter-xl">
+        <div class="flex items-center gap-gutter-sm mb-gutter-xs">
+          <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">Dian's</span>
+          <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"></path>
+          </svg>
+        </div>
+        <h1 class="font-display text-display-xl-mobile md:text-display-xl uppercase text-ink-primary text-balance max-w-5xl">PORTFOLIO
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-center">
+        <!-- Left Overlay Text -->
+        <div class="lg:col-span-4 order-2 lg:order-1 flex flex-col gap-gutter-md bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm">
+          <span class="font-hand text-hand-md text-primary" data-design-text-token="hand-md">Jakarta Barat · ITPLN ♡</span>
+          <p class="font-body text-body-lg text-ink-primary text-pretty" data-design-text-token="body-lg">
+            Mahasiswa Teknik Informatika ITPLN dengan passion di bidang Data Science, Event Management, &amp; AI Automation.
+          </p>
+          <div class="flex flex-wrap gap-gutter-sm pt-gutter-xs">
+            <a href="#projects" class="inline-flex items-center justify-center gap-gutter-sm px-gutter-lg py-gutter-md rounded-full bg-primary text-on-primary transition-transform duration-state-change ease-state-change hover:-translate-y-0.5" data-component-id="button-primary" data-component-type="button" data-component-variant="primary">
+              <span class="font-label text-label-lg" data-design-text-token="label-lg">Explore My Work</span>
+              <span class="material-symbols-outlined text-body-md">arrow_downward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Magazine Cover Portrait -->
+        <div class="lg:col-span-4 order-1 lg:order-2 flex justify-center">
+          <div class="relative bg-surface p-gutter-md pb-gutter-xl border border-accent-border rounded-sm shadow-md -rotate-1 max-w-xs w-full">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrDGxnQaMzW3tj0Oi3A3rHzb4GxUpbxi00xBTrqS6NVukpgqtOdKWHk5WZpnXBdWS9VobYgBdGenBwrSbdpTF8i6FoBgU0dEQuqb3ADFth_kbqMqkG5oxObpYJYvrcEYHfyEvmRQWfld-xfkqONA4mpOJ0fiRR8j3G4XsDiK7VDdy7UJnr8ysbkfKybetJeHiNuGof-hLN--RCKL4iTIIrl_6sU151b4rQgrXQdx-sTH14Yt0A7D" alt="Dian Yosephin — S1 Teknik Informatika ITPLN" class="w-full aspect-[3/4] object-cover rounded-sm">
+            <div class="pt-gutter-md flex items-center justify-between">
+              <span class="font-hand text-hand-md text-ink-primary" data-design-text-token="hand-md">Dian Yosephin</span>
+              <span class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">ED. 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Quick Stats Badges -->
+        <div class="lg:col-span-4 order-3 flex flex-col gap-gutter-md">
+          <div class="bg-surface border border-accent-border rounded-md p-gutter-md shadow-sm flex items-center gap-gutter-md" data-component-id="chip-with-icon" data-component-type="chip" data-component-variant="with-icon">
+            <div class="w-10 h-10 rounded-full bg-accent-rust-soft flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-primary">school</span>
+            </div>
+            <div>
+              <p class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">Academic</p>
+              <p class="font-label text-label-lg text-ink-primary" data-design-text-token="label-lg">S1 Teknik Informatika — ITPLN</p>
+            </div>
+          </div>
+
+          <div class="bg-surface border border-accent-border rounded-md p-gutter-md shadow-sm flex items-center gap-gutter-md">
+            <div class="w-10 h-10 rounded-full bg-accent-rust-soft flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-primary">emoji_events</span>
+            </div>
+            <div>
+              <p class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">National Award</p>
+              <p class="font-label text-label-lg text-ink-primary" data-design-text-token="label-lg">Juara 2 Business Plan ULM</p>
+            </div>
+          </div>
+
+          <div class="bg-surface border border-accent-border rounded-md p-gutter-md shadow-sm flex items-center gap-gutter-md">
+            <div class="w-10 h-10 rounded-full bg-accent-rust-soft flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-primary">diversity_3</span>
+            </div>
+            <div>
+              <p class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">Leadership</p>
+              <p class="font-label text-label-lg text-ink-primary" data-design-text-token="label-lg">Ex-Koordinator OSIS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Banner Strip: Marquee -->
+    <div class="border-y border-accent-border bg-surface-alt overflow-hidden py-gutter-md">
+      <div class="marquee-track font-label text-label-lg uppercase text-ink-primary tracking-wider">
+        <span class="px-gutter-lg">DATA SCIENCE <span class="text-primary">✦</span> SOFTWARE ENGINEERING <span class="text-primary">✦</span> EVENT MANAGEMENT <span class="text-primary">✦</span> PUBLIC SPEAKING <span class="text-primary">✦</span> AI AGENT AUTOMATION <span class="text-primary">✦</span></span>
+        <span class="px-gutter-lg" aria-hidden="true">DATA SCIENCE <span class="text-primary">✦</span> SOFTWARE ENGINEERING <span class="text-primary">✦</span> EVENT MANAGEMENT <span class="text-primary">✦</span> PUBLIC SPEAKING <span class="text-primary">✦</span> AI AGENT AUTOMATION <span class="text-primary">✦</span></span>
+      </div>
+    </div>
+
+    <!-- 2. SECTION: WHO AM I (#about) -->
+    <section id="about" class="max-w-6xl mx-auto px-gutter-lg py-section">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-start">
+        <!-- Left Column: Editorial Biography -->
+        <div class="lg:col-span-6 flex flex-col gap-gutter-lg">
+          <div>
+            <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">get to know me ♡</span>
+            <h2 class="font-display text-display-lg-mobile md:text-display-lg uppercase text-ink-primary">WHO AM I</h2>
+          </div>
+
+          <article class="bg-surface border border-accent-border rounded-md p-gutter-xl shadow-sm flex flex-col gap-gutter-md">
+            <p class="font-body text-body-md text-ink-primary text-pretty" data-design-text-token="body-md">
+              Halo! Saya Dian Yosephin, mahasiswa S1 Teknik Informatika di Institut Teknologi PLN (ITPLN). Berdomisili di Jakarta Barat, saya memiliki ketertarikan tinggi dalam kegiatan organisasi, kepanitiaan acara, serta pengembangan teknologi informasi.
+            </p>
+            <p class="font-body text-body-md text-ink-soft text-pretty" data-design-text-token="body-md">
+              Berpengalaman memimpin divisi OSIS, mengelola event sekolah, hingga memenangkan kompetisi Business Plan nasional. Saya selalu bersemangat mempelajari hal baru dalam Data Science dan Software Engineering.
+            </p>
+            <div class="bg-surface-alt border border-accent-border rounded-sm p-gutter-md rotate-1 self-start">
+              <p class="font-hand text-hand-md text-primary" data-design-text-token="hand-md">
+                "Creative Mind. Strategic Thinker. Big on Results. ♡"
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Right Column: Education & Journey -->
+        <div class="lg:col-span-6 flex flex-col gap-gutter-lg">
+          <div>
+            <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">academic journey ✦</span>
+            <h2 class="font-display text-display-lg-mobile md:text-headline-lg uppercase text-ink-primary">EDUCATION &amp; JOURNEY</h2>
+          </div>
+
+          <div class="flex flex-col gap-gutter-md">
+            <article class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-sm" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated">
+              <div class="flex flex-wrap items-center justify-between gap-gutter-sm">
+                <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">Institut Teknologi PLN (ITPLN)</h3>
+                <span class="px-gutter-md py-gutter-xs rounded-full bg-accent-rust-soft text-primary font-label text-label-sm tabular-nums" data-design-text-token="label-sm">2026 - Sekarang</span>
+              </div>
+              <p class="font-label text-label-lg text-primary" data-design-text-token="label-lg">S1 Teknik Informatika</p>
+              <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">
+                Fokus pada Data Science, Software Engineering, dan Dasar Pemrograman (C++).
+              </p>
+            </article>
+
+            <article class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-sm" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated">
+              <div class="flex flex-wrap items-center justify-between gap-gutter-sm">
+                <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">SMA Santo Thomas 3 Medan</h3>
+                <span class="px-gutter-md py-gutter-xs rounded-full bg-surface-alt border border-accent-border text-ink-primary font-label text-label-sm tabular-nums" data-design-text-token="label-sm">2023 - 2026</span>
+              </div>
+              <p class="font-label text-label-lg text-primary" data-design-text-token="label-lg">Jurusan IPA / Science · Nilai Rata-Rata: 94.39</p>
+              <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">
+                Lulus dengan predikat Sangat Memuaskan (94.39). Aktif sebagai Koordinator OSIS Divisi Lingkungan Hidup (2025 - 2026) &amp; Anggota Divisi Kewirausahaan (2024 - 2025).
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION: QUALIFICATIONS (#qualifications) -->
+    <section id="qualifications" class="max-w-6xl mx-auto px-gutter-lg py-section border-t border-accent-border">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-gutter-md mb-gutter-xl">
+        <div>
+          <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">core competencies ✦</span>
+          <h2 class="font-display text-display-lg-mobile md:text-display-lg uppercase text-ink-primary">QUALIFICATIONS</h2>
+        </div>
+        <div class="bg-surface-alt border border-accent-border rounded-md px-gutter-lg py-gutter-md -rotate-1 max-w-sm">
+          <p class="font-hand text-hand-md text-primary" data-design-text-token="hand-md">
+            Good Code &amp; Clear Communication Builds Real Connections ♡
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg">
+        <article class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-sm">
+          <span class="material-symbols-outlined text-headline-lg text-primary">code</span>
+          <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">Programming &amp; Dev</h3>
+          <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">Dasar C++, HTML/CSS, &amp; Logika Pemrograman.</p>
+        </article>
+
+        <article class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-sm">
+          <span class="material-symbols-outlined text-headline-lg text-primary">event_note</span>
+          <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">Event &amp; Rundown Lead</h3>
+          <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">Penyusunan rundown, koordinasi pemateri, &amp; alur eksekusi acara.</p>
+        </article>
+
+        <article class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-sm">
+          <span class="material-symbols-outlined text-headline-lg text-primary">campaign</span>
+          <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">Leadership &amp; Comm.</h3>
+          <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">Memimpin tim divisi OSIS, koordinasi ekologi &amp; bazar.</p>
+        </article>
+
+        <article class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-sm">
+          <span class="material-symbols-outlined text-headline-lg text-primary">lightbulb</span>
+          <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">Business Planning</h3>
+          <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">Perencanaan model bisnis &amp; strategi inovasi (Juara 2 ULM).</p>
+        </article>
+
+        <article class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-sm md:col-span-2 lg:col-span-2">
+          <span class="material-symbols-outlined text-headline-lg text-primary">analytics</span>
+          <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">Data &amp; Productivity Tools</h3>
+          <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">Microsoft Word, Excel (Pengolahan Data &amp; Analisis), &amp; PowerPoint untuk presentasi eksekutif.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. SECTION: MY WORK INCLUDES (#projects) -->
+    <section id="projects" class="max-w-6xl mx-auto px-gutter-lg py-section border-t border-accent-border">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-gutter-md mb-gutter-xl">
+        <div>
+          <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">things I've executed ✦</span>
+          <h2 class="font-display text-display-lg-mobile md:text-display-lg uppercase text-ink-primary">MY WORK INCLUDES</h2>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-gutter-sm" role="group" aria-label="Filter projects">
+          <button type="button" data-filter="all" class="filter-chip px-gutter-md py-gutter-sm rounded-full bg-primary text-on-primary font-label text-label-sm uppercase">All</button>
+          <button type="button" data-filter="Event Ops" class="filter-chip px-gutter-md py-gutter-sm rounded-full bg-surface border border-accent-border text-ink-primary font-label text-label-sm uppercase">Event Ops</button>
+          <button type="button" data-filter="Community" class="filter-chip px-gutter-md py-gutter-sm rounded-full bg-surface border border-accent-border text-ink-primary font-label text-label-sm uppercase">Community</button>
+          <button type="button" data-filter="Innovation" class="filter-chip px-gutter-md py-gutter-sm rounded-full bg-surface border border-accent-border text-ink-primary font-label text-label-sm uppercase">Innovation</button>
+          <button type="button" data-filter="Coding" class="filter-chip px-gutter-md py-gutter-sm rounded-full bg-surface border border-accent-border text-ink-primary font-label text-label-sm uppercase">Coding</button>
+        </div>
+      </div>
+
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg items-stretch">
+        <!-- Card 1 -->
+        <article data-category="Event Ops" class="project-card bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col justify-between gap-gutter-md transition-transform duration-card-lift ease-card-lift hover:-translate-y-1">
+          <div class="flex flex-col gap-gutter-md">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrD5vqwlwyy4Ga7H2EtNO7Ey2i1JZy73E2vcCcJ42ZR5fK1AbkvmOEUUumIMyx0IRN5Czto70uHtvD8N4QD4M_fDlw-UVtdwjXKErZpk3IH1XmBSr0Xi7flZTxCJ72ihxIGhA4LYmlFQlekvfu_6N15nUA_C0Ky-XDpVoWE2bSm2HwghmJyMBqYWIHJTJzuTUPfYoW-u6NxP9tG7FemwZWA9Eo0xCOlmN_kTS5lJVChrnG4bT9_qhU2YBg" alt="Event MPLS 2025 &amp; Syukuran Natal 2026" class="w-full h-48 object-cover rounded-sm">
+            <div class="flex flex-col gap-gutter-xs">
+              <span class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">Event Ops</span>
+              <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">EVENT LEADERSHIP</h3>
+            </div>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">
+              Event MPLS (14–15 Juli 2025) &amp; Syukuran Natal (13 Jan 2026) SMA Santo Thomas 3. Rundown management, pemateri prep, &amp; live coordination.
+            </p>
+          </div>
+          <button type="button" onclick="openProjectModal('event')" class="pt-gutter-sm border-t border-accent-border flex items-center justify-between text-primary hover:opacity-80">
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">VIEW DETAILS</span>
+            <span class="material-symbols-outlined text-body-lg">arrow_outward</span>
+          </button>
+        </article>
+
+        <!-- Card 2 -->
+        <article data-category="Community" class="project-card bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col justify-between gap-gutter-md transition-transform duration-card-lift ease-card-lift hover:-translate-y-1">
+          <div class="flex flex-col gap-gutter-md">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrC1dFNNmexdHgaueWsOQCRlhopCiArUXHdWkObIVMxUZ-kA9WzDVOI0z_RqgDb301Sm0aBQhSCA6r9taR_d_Yx9zkHAsuoOVwiBSdMe073SlbW8oMujXLHpLBeBnHCvRCL-scdPg4bcF35oMHvQ3z7dw9vKpiLyhDcqRtSztsG1KXO3sPcFJXe0okup-HQykbYei9EAculuUnP6bO8EVlHsGigjo76RS0Qj_AfY3MWi4D5PzONoT-TAPg" alt="Hari Pangan &amp; Program Kompos OSIS" class="w-full h-48 object-cover rounded-sm">
+            <div class="flex flex-col gap-gutter-xs">
+              <span class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">Community</span>
+              <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">ECOLOGY &amp; COMPOST</h3>
+            </div>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">
+              Hari Pangan Sedunia &amp; Program Kompos OSIS. Pengolahan sampah organik menjadi pupuk &amp; peringatan Hari Ekologi.
+            </p>
+          </div>
+          <button type="button" onclick="openProjectModal('ecology')" class="pt-gutter-sm border-t border-accent-border flex items-center justify-between text-primary hover:opacity-80">
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">VIEW DETAILS</span>
+            <span class="material-symbols-outlined text-body-lg">arrow_outward</span>
+          </button>
+        </article>
+
+        <!-- Card 3 -->
+        <article data-category="Innovation" class="project-card bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col justify-between gap-gutter-md transition-transform duration-card-lift ease-card-lift hover:-translate-y-1">
+          <div class="flex flex-col gap-gutter-md">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAKXlOQQ9rzA_1GCRbuydR14HYwP7qf-s4qSR35p5AOxe23jNPqK6sL3-fp_wZ2bMu0ZggbtA7EycELx7R34wDvhcXq4ZSnAL4EuOfqtDufhHHk2Q6zP3VsHlzhlpjTuPdOqSdnXhrU753TOj5DiALYBfus0Q1gTKHRpkQa4Ox8HeouDoMf1QdbIcx5j7zpf-IXlCPtEIv-f2UQfXu4BhQozl6TwxgVZtiPzhQG2v5ySJjMlYxril4wSRi5cw" alt="Juara 2 Business Plan Competition ULM" class="w-full h-48 object-cover rounded-sm">
+            <div class="flex flex-col gap-gutter-xs">
+              <span class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">Innovation</span>
+              <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">BUSINESS PLAN ULM</h3>
+            </div>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">
+              Juara 2 Universitas Lambung Mangkurat. Perancangan strategi model bisnis inovatif berbasis analisis pasar &amp; presentasi pitching.
+            </p>
+          </div>
+          <button type="button" onclick="openProjectModal('business')" class="pt-gutter-sm border-t border-accent-border flex items-center justify-between text-primary hover:opacity-80">
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">VIEW DETAILS</span>
+            <span class="material-symbols-outlined text-body-lg">arrow_outward</span>
+          </button>
+        </article>
+
+        <!-- Card 4 -->
+        <article data-category="Event Ops" class="project-card bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col justify-between gap-gutter-md transition-transform duration-card-lift ease-card-lift hover:-translate-y-1">
+          <div class="flex flex-col gap-gutter-md">
+            <div class="w-full h-48 rounded-sm bg-surface-alt border border-accent-border flex flex-col items-center justify-center gap-gutter-sm">
+              <span class="material-symbols-outlined text-display-lg text-primary">storefront</span>
+              <span class="font-hand text-hand-md text-ink-soft">Divisi Kewirausahaan</span>
+            </div>
+            <div class="flex flex-col gap-gutter-xs">
+              <span class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">Management</span>
+              <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">OSIS BAZAR OPS</h3>
+            </div>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">
+              Anggota Divisi Kewirausahaan OSIS (2024–2025). Pengadaan hadiah lomba &amp; manajemen operasional bazar sekolah.
+            </p>
+          </div>
+          <button type="button" onclick="openProjectModal('bazar')" class="pt-gutter-sm border-t border-accent-border flex items-center justify-between text-primary hover:opacity-80">
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">VIEW DETAILS</span>
+            <span class="material-symbols-outlined text-body-lg">arrow_outward</span>
+          </button>
+        </article>
+
+        <!-- Card 5 -->
+        <article data-category="Coding" class="project-card bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col justify-between gap-gutter-md transition-transform duration-card-lift ease-card-lift hover:-translate-y-1">
+          <div class="flex flex-col gap-gutter-md">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrC-oiiSleAhLWUsDzx9ueuUqzanoMR3ehL5ZwAtCRRxNEFzWhdw4vQcEA9hc9S9B1HvZ6EtKYcfWRwaOmrq5oKhXu5mm1NlMmBYzEABne-Yl72LVvZtQ4uCvn2V8YsJFzWF6nWrxhM6LOKSnraieQvlZA4AKnB-k4jf2Pi1myqlMGd9EgKcFsuexcugW-g3KfaEBFvFtumFxuxnN3VQ8vZu9P8v8Jt4D5z3AxB272xdhfUPKP2NusWt5uIIvkU" alt="C++ &amp; Algorithm Projects ITPLN" class="w-full h-48 object-cover rounded-sm">
+            <div class="flex flex-col gap-gutter-xs">
+              <span class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">Coding</span>
+              <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">C++ &amp; ALGORITHMS</h3>
+            </div>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">
+              ITPLN Academic Projects. Pengantar struktur data, logika algoritma, &amp; implementasi pemrograman C++.
+            </p>
+          </div>
+          <button type="button" onclick="openProjectModal('cpp')" class="pt-gutter-sm border-t border-accent-border flex items-center justify-between text-primary hover:opacity-80">
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">VIEW DETAILS</span>
+            <span class="material-symbols-outlined text-body-lg">arrow_outward</span>
+          </button>
+        </article>
+
+        <!-- Card 6 -->
+        <article data-category="Coding" class="project-card bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col justify-between gap-gutter-md transition-transform duration-card-lift ease-card-lift hover:-translate-y-1">
+          <div class="flex flex-col gap-gutter-md">
+            <div class="w-full h-48 rounded-sm bg-surface-alt border border-accent-border flex flex-col items-center justify-center gap-gutter-sm">
+              <span class="material-symbols-outlined text-display-lg text-primary">smart_toy</span>
+              <span class="font-hand text-hand-md text-ink-soft">AI &amp; Human Touch</span>
+            </div>
+            <div class="flex flex-col gap-gutter-xs">
+              <span class="font-label text-label-sm uppercase text-primary" data-design-text-token="label-sm">Technology</span>
+              <h3 class="font-title text-title-md text-ink-primary" data-design-text-token="title-md">AI &amp; MULTIMEDIA</h3>
+            </div>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">
+              Webinar "Multimedia: The Human Touch" &amp; eksplorasi AI agent automation serta interaksi manusia-komputer.
+            </p>
+          </div>
+          <button type="button" onclick="openProjectModal('ai')" class="pt-gutter-sm border-t border-accent-border flex items-center justify-between text-primary hover:opacity-80">
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">VIEW DETAILS</span>
+            <span class="material-symbols-outlined text-body-lg">arrow_outward</span>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. SECTION: CASE STUDY SPOTLIGHT (#casestudy) -->
+    <section id="casestudy" class="bg-surface-alt border-y border-accent-border py-section">
+      <div class="max-w-6xl mx-auto px-gutter-lg">
+        <div class="mb-gutter-xl">
+          <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">From Idea to Execution ♡</span>
+          <h2 class="font-display text-display-lg-mobile md:text-display-lg uppercase text-ink-primary">CASE STUDY SPOTLIGHT</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-center">
+          <!-- Left Narrative -->
+          <div class="lg:col-span-7 flex flex-col gap-gutter-lg">
+            <div>
+              <p class="font-label text-label-lg uppercase text-primary mb-gutter-xs" data-design-text-token="label-lg">
+                KOORDINATOR DIVISI LINGKUNGAN HIDUP OSIS (JANUARI 2025 - JANUARI 2026)
+              </p>
+              <p class="font-body text-body-lg text-ink-primary text-pretty" data-design-text-token="body-lg">
+                Memimpin inisiatif keberlanjutan lingkungan dan program kebersihan berkala di SMA Santo Thomas 3 Medan.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-gutter-sm bg-surface border border-accent-border rounded-md p-gutter-lg">
+              <div class="flex items-start gap-gutter-sm">
+                <span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
+                <p class="font-body text-body-md text-ink-primary" data-design-text-token="body-md">
+                  <strong>Pengolahan Sampah Organik:</strong> Mengubah limbah organik sekolah menjadi pupuk kompos secara berkelanjutan.
+                </p>
+              </div>
+              <div class="flex items-start gap-gutter-sm">
+                <span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
+                <p class="font-body text-body-md text-ink-primary" data-design-text-token="body-md">
+                  <strong>Hari Pangan Sedunia &amp; Hari Ekologi:</strong> Mengkoordinasikan kampanye kesadaran lingkungan menyeluruh.
+                </p>
+              </div>
+              <div class="flex items-start gap-gutter-sm">
+                <span class="material-symbols-outlined text-primary shrink-0">check_circle</span>
+                <p class="font-body text-body-md text-ink-primary" data-design-text-token="body-md">
+                  <strong>Program Kebersihan Bulanan:</strong> Menggerakkan seluruh siswa &amp; anggota divisi secara konsisten setiap bulan.
+                </p>
+              </div>
+            </div>
+
+            <!-- 3 Impact Stat Pills -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter-md">
+              <div class="bg-surface border border-accent-border rounded-md p-gutter-md shadow-sm">
+                <p class="font-display text-headline-lg text-primary tabular-nums">100%</p>
+                <p class="font-body text-body-sm text-ink-soft" data-design-text-token="body-sm">Program Kebersihan Terlaksana Rutin</p>
+              </div>
+              <div class="bg-surface border border-accent-border rounded-md p-gutter-md shadow-sm">
+                <p class="font-display text-headline-lg text-primary tabular-nums">2 Events</p>
+                <p class="font-body text-body-sm text-ink-soft" data-design-text-token="body-sm">Hari Pangan &amp; Hari Ekologi Successful</p>
+              </div>
+              <div class="bg-surface border border-accent-border rounded-md p-gutter-md shadow-sm">
+                <p class="font-display text-headline-lg text-primary">Compost</p>
+                <p class="font-body text-body-sm text-ink-soft" data-design-text-token="body-sm">Limbah Organik Didaur Ulang</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Polaroid Showcase -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-gutter-lg">
+            <figure class="bg-surface p-gutter-md pb-gutter-lg border border-accent-border rounded-sm shadow-md rotate-1">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrC1dFNNmexdHgaueWsOQCRlhopCiArUXHdWkObIVMxUZ-kA9WzDVOI0z_RqgDb301Sm0aBQhSCA6r9taR_d_Yx9zkHAsuoOVwiBSdMe073SlbW8oMujXLHpLBeBnHCvRCL-scdPg4bcF35oMHvQ3z7dw9vKpiLyhDcqRtSztsG1KXO3sPcFJXe0okup-HQykbYei9EAculuUnP6bO8EVlHsGigjo76RS0Qj_AfY3MWi4D5PzONoT-TAPg" alt="Program Kompos OSIS SMA Santo Thomas 3 Medan" class="w-full h-52 object-cover rounded-sm">
+              <figcaption class="pt-gutter-sm font-hand text-hand-md text-ink-primary" data-design-text-token="hand-md">
+                Organic Waste to Compost Project ♡
+              </figcaption>
+            </figure>
+            <figure class="bg-surface p-gutter-md pb-gutter-lg border border-accent-border rounded-sm shadow-md -rotate-2">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrD5vqwlwyy4Ga7H2EtNO7Ey2i1JZy73E2vcCcJ42ZR5fK1AbkvmOEUUumIMyx0IRN5Czto70uHtvD8N4QD4M_fDlw-UVtdwjXKErZpk3IH1XmBSr0Xi7flZTxCJ72ihxIGhA4LYmlFQlekvfu_6N15nUA_C0Ky-XDpVoWE2bSm2HwghmJyMBqYWIHJTJzuTUPfYoW-u6NxP9tG7FemwZWA9Eo0xCOlmN_kTS5lJVChrnG4bT9_qhU2YBg" alt="Koordinasi Acara Sekolah" class="w-full h-44 object-cover rounded-sm">
+              <figcaption class="pt-gutter-sm font-hand text-hand-md text-ink-primary" data-design-text-token="hand-md">
+                Live Rundown &amp; Team Coordination ✦
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SECTION: SKILLS & TOOLKITS (#skills) -->
+    <section id="skills" class="max-w-6xl mx-auto px-gutter-lg py-section">
+      <div class="mb-gutter-xl">
+        <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">tools of the trade ✦</span>
+        <h2 class="font-display text-display-lg-mobile md:text-display-lg uppercase text-ink-primary">SKILLS &amp; TOOLKITS</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg">
+        <div class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-md">
+          <h3 class="font-label text-label-lg uppercase text-primary border-b border-accent-border pb-gutter-sm" data-design-text-token="label-lg">PROGRAMMING &amp; DEV</h3>
+          <div class="flex flex-wrap gap-gutter-sm">
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">C++ (Logic Fundamentals)</span>
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">HTML5 &amp; CSS3</span>
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">Git / GitHub</span>
+          </div>
+        </div>
+
+        <div class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-md">
+          <h3 class="font-label text-label-lg uppercase text-primary border-b border-accent-border pb-gutter-sm" data-design-text-token="label-lg">PRODUCTIVITY &amp; DATA</h3>
+          <div class="flex flex-wrap gap-gutter-sm">
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">Microsoft Excel (Data Analysis)</span>
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">Microsoft Word</span>
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">Microsoft PowerPoint</span>
+          </div>
+        </div>
+
+        <div class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex flex-col gap-gutter-md">
+          <h3 class="font-label text-label-lg uppercase text-primary border-b border-accent-border pb-gutter-sm" data-design-text-token="label-lg">SOFT SKILLS &amp; LEADERSHIP</h3>
+          <div class="flex flex-wrap gap-gutter-sm">
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">Teamwork &amp; Collaboration</span>
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">Public Speaking</span>
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">Time Management</span>
+            <span class="px-gutter-md py-gutter-sm rounded-full bg-surface-alt border border-accent-border font-body text-body-sm text-ink-primary">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SECTION: ACHIEVEMENTS (#achievements) -->
+    <section id="achievements" class="max-w-6xl mx-auto px-gutter-lg py-section border-t border-accent-border">
+      <div class="mb-gutter-xl">
+        <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">proud moments ✦</span>
+        <h2 class="font-display text-display-lg-mobile md:text-display-lg uppercase text-ink-primary">HONORS &amp; ACHIEVEMENTS</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-lg">
+        <article class="bg-surface border border-accent-rust rounded-md p-gutter-lg shadow-sm flex items-start gap-gutter-md">
+          <div class="w-11 h-11 rounded-full bg-accent-rust-soft flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-primary">emoji_events</span>
+          </div>
+          <div>
+            <h3 class="font-title text-title-md text-ink-primary mb-gutter-xs" data-design-text-token="title-md">Juara 2 Business Plan Competition — ULM</h3>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">Mempresentasikan ide bisnis inovatif berbasis analisis pasar dengan strategi eksekusi komprehensif.</p>
+          </div>
+        </article>
+
+        <article class="bg-surface border border-accent-rust rounded-md p-gutter-lg shadow-sm flex items-start gap-gutter-md">
+          <div class="w-11 h-11 rounded-full bg-accent-rust-soft flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-primary">school</span>
+          </div>
+          <div>
+            <h3 class="font-title text-title-md text-ink-primary mb-gutter-xs tabular-nums" data-design-text-token="title-md">Nilai Rata-Rata Kelulusan 94.39 — Medan</h3>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">Pencapaian akademik unggul dan konsisten di Jurusan IPA SMA Santo Thomas 3 Medan.</p>
+          </div>
+        </article>
+
+        <article class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex items-start gap-gutter-md">
+          <div class="w-11 h-11 rounded-full bg-surface-alt flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-primary">article</span>
+          </div>
+          <div>
+            <h3 class="font-title text-title-md text-ink-primary mb-gutter-xs" data-design-text-token="title-md">Webinar "Multimedia: The Human Touch"</h3>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">Eksplorasi prinsip multimedia dan interaksi manusia-komputer yang manusiawi di era digital.</p>
+          </div>
+        </article>
+
+        <article class="bg-surface border border-accent-border rounded-md p-gutter-lg shadow-sm flex items-start gap-gutter-md">
+          <div class="w-11 h-11 rounded-full bg-surface-alt flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-primary">star</span>
+          </div>
+          <div>
+            <h3 class="font-title text-title-md text-ink-primary mb-gutter-xs" data-design-text-token="title-md">Panitia MPLS (2025) &amp; Syukuran Natal (2026)</h3>
+            <p class="font-body text-body-md text-ink-soft" data-design-text-token="body-md">Sukses mengawal rundown dan kelancaran alur acara sekolah skala besar pada 14–15 Juli 2025 dan 13 Januari 2026.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 8. SECTION: ACTIVITY GALLERY (#gallery) -->
+    <section id="gallery" class="max-w-6xl mx-auto px-gutter-lg py-section border-t border-accent-border">
+      <div class="mb-gutter-xl">
+        <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">Short form. Big impact. ♡</span>
+        <h2 class="font-display text-display-lg-mobile md:text-display-lg uppercase text-ink-primary">BEHIND THE SCENES</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-lg">
+        <figure class="bg-surface p-gutter-md pb-gutter-lg border border-accent-border rounded-sm shadow-md -rotate-2 transition-transform duration-card-lift hover:rotate-0">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrD5vqwlwyy4Ga7H2EtNO7Ey2i1JZy73E2vcCcJ42ZR5fK1AbkvmOEUUumIMyx0IRN5Czto70uHtvD8N4QD4M_fDlw-UVtdwjXKErZpk3IH1XmBSr0Xi7flZTxCJ72ihxIGhA4LYmlFQlekvfu_6N15nUA_C0Ky-XDpVoWE2bSm2HwghmJyMBqYWIHJTJzuTUPfYoW-u6NxP9tG7FemwZWA9Eo0xCOlmN_kTS5lJVChrnG4bT9_qhU2YBg" alt="Event Organization MPLS 2025 &amp; Natal 2026" class="w-full h-48 object-cover rounded-sm">
+          <figcaption class="pt-gutter-md font-hand text-hand-md text-ink-primary" data-design-text-token="hand-md">MPLS 2025 &amp; Natal 2026 Lead</figcaption>
+        </figure>
+
+        <figure class="bg-surface p-gutter-md pb-gutter-lg border border-accent-border rounded-sm shadow-md rotate-1 transition-transform duration-card-lift hover:rotate-0">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrC1dFNNmexdHgaueWsOQCRlhopCiArUXHdWkObIVMxUZ-kA9WzDVOI0z_RqgDb301Sm0aBQhSCA6r9taR_d_Yx9zkHAsuoOVwiBSdMe073SlbW8oMujXLHpLBeBnHCvRCL-scdPg4bcF35oMHvQ3z7dw9vKpiLyhDcqRtSztsG1KXO3sPcFJXe0okup-HQykbYei9EAculuUnP6bO8EVlHsGigjo76RS0Qj_AfY3MWi4D5PzONoT-TAPg" alt="OSIS Eco &amp; Compost Project" class="w-full h-48 object-cover rounded-sm">
+          <figcaption class="pt-gutter-md font-hand text-hand-md text-ink-primary" data-design-text-token="hand-md">OSIS Eco &amp; Compost Project</figcaption>
+        </figure>
+
+        <figure class="bg-surface p-gutter-md pb-gutter-lg border border-accent-border rounded-sm shadow-md -rotate-1 transition-transform duration-card-lift hover:rotate-0">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrAKXlOQQ9rzA_1GCRbuydR14HYwP7qf-s4qSR35p5AOxe23jNPqK6sL3-fp_wZ2bMu0ZggbtA7EycELx7R34wDvhcXq4ZSnAL4EuOfqtDufhHHk2Q6zP3VsHlzhlpjTuPdOqSdnXhrU753TOj5DiALYBfus0Q1gTKHRpkQa4Ox8HeouDoMf1QdbIcx5j7zpf-IXlCPtEIv-f2UQfXu4BhQozl6TwxgVZtiPzhQG2v5ySJjMlYxril4wSRi5cw" alt="Business Plan Pitching ULM" class="w-full h-48 object-cover rounded-sm">
+          <figcaption class="pt-gutter-md font-hand text-hand-md text-ink-primary" data-design-text-token="hand-md">Business Plan Pitching ULM</figcaption>
+        </figure>
+
+        <figure class="bg-surface p-gutter-md pb-gutter-lg border border-accent-border rounded-sm shadow-md rotate-2 transition-transform duration-card-lift hover:rotate-0">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrC-oiiSleAhLWUsDzx9ueuUqzanoMR3ehL5ZwAtCRRxNEFzWhdw4vQcEA9hc9S9B1HvZ6EtKYcfWRwaOmrq5oKhXu5mm1NlMmBYzEABne-Yl72LVvZtQ4uCvn2V8YsJFzWF6nWrxhM6LOKSnraieQvlZA4AKnB-k4jf2Pi1myqlMGd9EgKcFsuexcugW-g3KfaEBFvFtumFxuxnN3VQ8vZu9P8v8Jt4D5z3AxB272xdhfUPKP2NusWt5uIIvkU" alt="Campus Life at ITPLN Jakarta" class="w-full h-48 object-cover rounded-sm">
+          <figcaption class="pt-gutter-md font-hand text-hand-md text-ink-primary" data-design-text-token="hand-md">Campus Life at ITPLN Jakarta</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 9. SECTION: LET'S CONNECT (#contact) -->
+    <section id="contact" class="max-w-5xl mx-auto px-gutter-lg py-section">
+      <div class="bg-surface border-2 border-ink-primary rounded-xl p-gutter-xl md:p-12 shadow-md text-center flex flex-col items-center gap-gutter-lg">
+        <span class="font-hand text-hand-lg text-primary" data-design-text-token="hand-lg">Let's create something amazing together ♡</span>
+        <h2 class="font-display text-display-lg-mobile md:text-display-lg uppercase text-ink-primary text-balance">
+          WANT TO COLLABORATE OR TALK TECH?
+        </h2>
+        <p class="font-body text-body-lg text-ink-soft max-w-2xl text-pretty" data-design-text-token="body-lg">
+          Saya terbuka untuk diskusi seputar kepanitiaan, proyek software engineering, Data Science, maupun kolaborasi organisasi.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-gutter-md pt-gutter-sm">
+          <a href="mailto:dian.yosephin3@gmail.com" class="inline-flex items-center gap-gutter-sm px-gutter-lg py-gutter-md rounded-full bg-primary text-on-primary transition-transform duration-state-change hover:-translate-y-0.5" data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon">
+            <span class="material-symbols-outlined text-body-lg" aria-hidden="true">mail</span>
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">dian.yosephin3@gmail.com</span>
+          </a>
+
+          <a href="https://wa.me/6285260734138" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-gutter-sm px-gutter-lg py-gutter-md rounded-full bg-surface text-ink-primary border border-accent-border transition-transform duration-state-change hover:-translate-y-0.5">
+            <span class="material-symbols-outlined text-body-lg text-primary" aria-hidden="true">chat</span>
+            <span class="font-label text-label-lg tabular-nums" data-design-text-token="label-lg">0852-6073-4138</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/dianyosephin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-gutter-sm px-gutter-lg py-gutter-md rounded-full bg-surface text-ink-primary border border-accent-border transition-transform duration-state-change hover:-translate-y-0.5">
+            <span class="material-symbols-outlined text-body-lg text-primary" aria-hidden="true">work</span>
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">linkedin.com/in/dianyosephin</span>
+          </a>
+
+          <a href="https://github.com/dianyosephin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-gutter-sm px-gutter-lg py-gutter-md rounded-full bg-surface text-ink-primary border border-accent-border transition-transform duration-state-change hover:-translate-y-0.5">
+            <span class="material-symbols-outlined text-body-lg text-primary" aria-hidden="true">code</span>
+            <span class="font-label text-label-lg" data-design-text-token="label-lg">github.com/dianyosephin</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-accent-border bg-surface-alt">
+    <div class="max-w-6xl mx-auto px-gutter-lg py-gutter-lg flex flex-col sm:flex-row items-center justify-between gap-gutter-sm text-center sm:text-left">
+      <p class="font-body text-body-sm text-ink-soft" data-design-text-token="body-sm">© 2026 Dian Yosephin. All rights reserved.</p>
+      <p class="font-body text-body-sm text-ink-soft" data-design-text-token="body-sm">Designed with Warm Editorial Style ✦ S1 Teknik Informatika ITPLN</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Project Detail Modal -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink-primary/60 p-gutter-lg" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="bg-surface border border-accent-border rounded-lg max-w-lg w-full p-gutter-xl shadow-xl flex flex-col gap-gutter-md">
+      <div class="flex items-start justify-between gap-gutter-md">
+        <div>
+          <span id="modal-tag" class="font-label text-label-sm uppercase text-primary"></span>
+          <h3 id="modal-title" class="font-headline text-headline-md text-ink-primary"></h3>
+        </div>
+        <button type="button" onclick="closeProjectModal()" aria-label="Close modal" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-surface-alt border border-accent-border text-ink-primary">
+          <span class="material-symbols-outlined text-body-md">close</span>
+        </button>
+      </div>
+      <p id="modal-period" class="font-label text-label-sm text-ink-soft"></p>
+      <ul id="modal-tasks" class="flex flex-col gap-gutter-sm font-body text-body-md text-ink-primary list-disc pl-gutter-lg"></ul>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const projectDetails = {
+        event: {
+          tag: 'Event Ops · SMA Santo Thomas 3 Medan',
+          title: 'Panitia Acara MPLS 2025/2026 & Syukuran Natal',
+          period: '14–15 Juli 2025 & 13 Januari 2026',
+          tasks: [
+            'Menyusun rundown acara dan mengatur alur rangkaian kegiatan secara presisi.',
+            'Memastikan pemateri, pengisi acara, dan pemberi kata sambutan siap sesuai jadwal.',
+            'Memantau jalannya setiap sesi dan penampilan kelas agar berlangsung tertib.'
+          ]
+        },
+        ecology: {
+          tag: 'Community · OSIS Divisi Lingkungan Hidup',
+          title: 'Program Kompos, Hari Pangan Sedunia & Hari Ekologi',
+          period: 'Januari 2025 - Januari 2026',
+          tasks: [
+            'Memimpin pelaksanaan peringatan Hari Pangan Sedunia dan kegiatan Hari Ekologi.',
+            'Mengkoordinasikan program kebersihan rutin setiap bulan di lingkungan sekolah.',
+            'Melaksanakan pengolahan sampah organik menjadi pupuk kompos berkelanjutan.'
+          ]
+        },
+        business: {
+          tag: 'Innovation · Universitas Lambung Mangkurat',
+          title: 'Juara 2 Business Plan Competition',
+          period: 'Kompetisi Nasional ULM',
+          tasks: [
+            'Merancang model bisnis inovatif berbasis analisis pasar dan kelayakan finansial.',
+            'Menyusun strategi eksekusi komprehensif dan mempresentasikan pitch deck di hadapan dewan juri.'
+          ]
+        },
+        bazar: {
+          tag: 'Management · OSIS Divisi Kewirausahaan',
+          title: 'Operasional Bazar Sekolah & Pengadaan Hadiah',
+          period: 'Januari 2024 - Januari 2025',
+          tasks: [
+            'Mengelola pelaksanaan bazar pada berbagai kegiatan resmi sekolah.',
+            'Berpartisipasi aktif dalam perencanaan dan pengadaan hadiah untuk perlombaan sekolah.'
+          ]
+        },
+        cpp: {
+          tag: 'Coding · S1 Teknik Informatika ITPLN',
+          title: 'C++ & Algorithm Academic Projects',
+          period: '2026 - Sekarang',
+          tasks: [
+            'Implementasi dasar pemrograman C++, struktur data, dan pemecahan masalah algoritmik.',
+            'Penerapan logika pemrograman terstruktur dalam tugas kuliah Teknik Informatika.'
+          ]
+        },
+        ai: {
+          tag: 'Technology · Multimedia & AI Automation',
+          title: 'AI Tools Exploration & Multimedia Webinar',
+          period: 'Self-Learning & Webinar Nasional',
+          tasks: [
+            'Mengikuti Webinar Nasional "Multimedia: The Human Touch" tentang interaksi manusia-komputer.',
+            'Mengeksplorasi alur kerja AI Agent Automation dan Data Science.'
+          ]
+        }
+      };
+
+      window.openProjectModal = function (key) {
+        const data = projectDetails[key];
+        if (!data) return;
+        document.getElementById('modal-tag').textContent = data.tag;
+        document.getElementById('modal-title').textContent = data.title;
+        document.getElementById('modal-period').textContent = data.period;
+        const list = document.getElementById('modal-tasks');
+        list.innerHTML = '';
+        data.tasks.forEach(function (task) {
+          const li = document.createElement('li');
+          li.textContent = task;
+          list.appendChild(li);
+        });
+        const modal = document.getElementById('project-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      };
+
+      window.closeProjectModal = function () {
+        const modal = document.getElementById('project-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
+
+      document.getElementById('project-modal').addEventListener('click', function (e) {
+        if (e.target === this) window.closeProjectModal();
+      });
+
+      document.querySelectorAll('.filter-chip').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const filter = btn.getAttribute('data-filter');
+          document.querySelectorAll('.filter-chip').forEach(function (b) {
+            b.classList.remove('bg-primary', 'text-on-primary');
+            b.classList.add('bg-surface', 'border', 'border-accent-border', 'text-ink-primary');
+          });
+          btn.classList.remove('bg-surface', 'border', 'border-accent-border', 'text-ink-primary');
+          btn.classList.add('bg-primary', 'text-on-primary');
+
+          document.querySelectorAll('.project-card').forEach(function (card) {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>
